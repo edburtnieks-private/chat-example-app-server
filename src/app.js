@@ -4,7 +4,10 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
+import createChatkitInstanceMiddleware from './middlewares/createChatkitInstanceMiddleware';
+
 import indexRouter from './routes/index';
+import chatkitRouter from './routes/chatkit';
 import spotifyRouter from './routes/spotify';
 
 dotenv.config();
@@ -18,6 +21,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use('/', indexRouter);
+app.use('/chatkit', createChatkitInstanceMiddleware, chatkitRouter);
 app.use('/spotify', spotifyRouter);
 
 export default app;
