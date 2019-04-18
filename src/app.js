@@ -20,8 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/', indexRouter);
-app.use('/chatkit', createChatkitInstanceMiddleware, chatkitRouter);
-app.use('/spotify', spotifyRouter);
+app.use('/api', indexRouter);
+app.use('/api/chatkit', createChatkitInstanceMiddleware, chatkitRouter);
+app.use('/api/spotify', spotifyRouter);
 
 export default app;
